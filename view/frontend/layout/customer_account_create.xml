@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author  Rakesh Jesadiya
+ * @package Rbj_Modulename
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer_form_register">
+           <action method="setTemplate">
+                <argument name="template" xsi:type="string">Custom_Register::form/register.phtml</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

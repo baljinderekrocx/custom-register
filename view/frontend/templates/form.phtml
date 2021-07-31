@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-md-8">
+        <form name="addData" method="post" id="addData" class="form"
+              action="<?php echo $this->getFormAction(); ?>"
+              data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+              data-mage-init='{"validation":{}}'>
+            <fieldset class="fieldset">
+                <!-- <legend class="legend"><span><?= $block->escapeHtmlAttr(__('Fill Detail')) ?></span></legend> -->
+                <fieldset class="fieldset row">
+                    <div class="fields col-md-6">
+                       <div class="field field-name-firstname required">
+                            <label class="label" for="firstname"><span>First Name</span></label>
+                            <div class="control">
+                                <input type="text" id="firstname" name="firstname" value="" title="First Name" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                            </div>
+                        </div>
+                         <div class="field field-name-lastname required">
+                            <label class="label" for="lastname"><span>Last Name</span></label>
+                            <div class="control">
+                                <input type="text" id="lastname" name="lastname" value="" title="Last Name" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                            </div>
+                        </div>
+                       <div class="field required">
+                            <label for="email_address" class="label"><span>Email</span></label>
+                            <div class="control">
+                                <input type="email" name="email" autocomplete="email" id="email_address" value="" title="Email" class="input-text" data-validate="{required:true, 'validate-email':true}" aria-required="true">
+                            </div>
+                        </div>
+                        <div class="field confirmation required">
+                            <label for="password-confirmation" class="label"><span>Confirm Password</span></label>
+                            <div class="control">
+                                <input type="password" name="password_confirmation" title="Confirm Password" id="password-confirmation" class="input-text" data-validate="{required:true, equalTo:'#password'}" autocomplete="off" aria-required="true">
+                            </div>
+                        </div>
+                        <div class="field confirmation required">
+                            <label for="password-confirmation" class="label"><span>Confirm Password</span></label>
+                            <div class="control">
+                                <input type="password" name="password_confirmation" title="Confirm Password" id="password-confirmation" class="input-text" data-validate="{required:true, equalTo:'#password'}" autocomplete="off" aria-required="true">
+                            </div>
+                        </div>
+                        <div class="field confirmation required">
+                            <label for="password-confirmation" class="label"><span>Business</span></label>
+                            <div class="control">
+                                <input type="checkbox" class="input-checkbox" id="business" name="business" value="business">
+                            </div>
+                       <div class="if-business">
+                        </div> 
+                        <div class="field confirmation required">
+                            <label for="password-confirmation" class="label"><span>Business name</span></label>
+                            <div class="control">
+                                <input type="text" class="input-text" id="business-name" name="business-name">
+                            </div>
+                        </div> 
+                        <div class="field confirmation required">
+                            <label for="password-confirmation" class="label"><span>address</span></label>
+                            <div class="control">
+                                <input type="text" class="input-text" id="address" name="address">
+                            </div>
+                        </div>
+                        <div class="field confirmation required">
+                            <label for="password-confirmation" class="label"><span>TIN</span></label>
+                            <div class="control">
+                                <input type="text" class="input-text" id="TIN" name="TIN">
+                            </div>
+                        </div>
+                        <div class="field confirmation required">
+                            <label for="password-confirmation" class="label"><span>W9 form</span></label>
+                            <div class="control">
+                                <input type="text" class="input-text" id="W9" name="W9">
+                            </div>
+                        </div>
+                        <div class="field confirmation required">
+                            <label for="password-confirmation" class="label"><span>Tax Exempt</span></label>
+                            <div class="control">
+                                <input type="text" class="input-text" id="tex" name="tex">
+                            </div>
+                        </div>
+                       </div>
+                       
+                    </div>
+                </fieldset>
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action submit primary" title="Save"><span><?= $block->
+                        escapeHtmlAttr(__('Save')) ?></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

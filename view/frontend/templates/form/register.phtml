@@ -1,0 +1,139 @@
+<div class="row">
+    <div class="col-md-8">
+        <form name="addData" method="post" id="addData" class="form"
+              action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>"
+              data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+              data-mage-init='{"validation":{}}'  enctype="multipart/form-data">
+            <fieldset class="fieldset">
+                <!-- <legend class="legend"><span><?= $block->escapeHtmlAttr(__('Fill Detail')) ?></span></legend> -->
+                <fieldset class="fieldset row">
+                    <div class="fields col-md-6">
+                       <div class="field field-name-firstname required">
+                            <label class="label" for="firstname"><span>First Name</span></label>
+                            <div class="control">
+                                <input type="text" id="firstname" name="firstname" value="" title="First Name" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                            </div>
+                        </div>
+                         <div class="field field-name-lastname required">
+                            <label class="label" for="lastname"><span>Last Name</span></label>
+                            <div class="control">
+                                <input type="text" id="lastname" name="lastname" value="" title="Last Name" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+                            </div>
+                        </div>
+                       <div class="field required">
+                            <label for="email_address" class="label"><span>Email</span></label>
+                            <div class="control">
+                                <input type="email" name="email" autocomplete="email" id="email_address" value="" title="Email" class="input-text" data-validate="{required:true, 'validate-email':true}" aria-required="true">
+                            </div>
+                        </div>
+                <div class="field password required">
+                    <label for="password" class="label"><span><?= $block->escapeHtml(__('Password')) ?></span></label>
+                    <div class="control">
+                        <input type="password" name="password" id="password"  title="<?= $block->escapeHtmlAttr(__('Password')) ?>" class="input-text" data-password-min-length="<?= $block->escapeHtmlAttr($block->getMinimumPasswordLength()) ?>"
+                               data-password-min-character-sets="<?= $block->escapeHtmlAttr($block->getRequiredCharacterClassesNumber()) ?>"
+                               data-validate="{required:true, 'validate-customer-password':true}"
+                               autocomplete="off">
+                        <div id="password-strength-meter-container" data-role="password-strength-meter" aria-live="polite">
+                            <div id="password-strength-meter" class="password-strength-meter">
+                                <?= $block->escapeHtml(__('Password Strength')) ?>:
+                                <span id="password-strength-meter-label" data-role="password-strength-meter-label">
+                                    <?= $block->escapeHtml(__('No Password')) ?>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <div class="field confirmation required">
+                    <label for="password-confirmation" class="label"><span><?= $block->escapeHtml(__('Confirm Password')) ?></span></label>
+                    <div class="control">
+                        <input type="password" name="password_confirmation" title="<?= $block->escapeHtmlAttr(__('Confirm Password')) ?>" id="password-confirmation" class="input-text" data-validate="{required:true, equalTo:'#password'}" autocomplete="off">
+                    </div>
+                </div>
+                        <div class="field business required">
+                            <label for="business" class="label"><span>if you are a business?</span></label>
+                            <div class="control">
+                                <input type="checkbox" class="input-checkbox" id="business" name="business" value="yes-business">
+                            </div>
+                        </div>
+                       <div class="field if-business" style="display: none;">
+                      
+                        <div class="field business required">
+                            <label for="business-name" class="label"><span>Business name</span></label>
+                            <div class="control">
+                                <input type="text" class="input-text" id="business-name" name="business_name">
+                            </div>
+                        </div> 
+                        <div class="field address required">
+                            <label for="address" class="label"><span>Address</span></label>
+                            <div class="control">
+                                <input type="text" class="input-text" id="address" name="address">
+                            </div>
+                        </div>
+                        <div class="field tin required">
+                            <label for="tin" class="label"><span>TIN</span></label>
+                            <div class="control">
+                                <input type="text" class="input-text" id="TIN" name="tin">
+                            </div>
+                        </div>
+                        <div class="field W9 required">
+                            <label for="W9" class="label"><span>W9 form</span></label>
+                            <div class="control">
+                                <input type="file" class="input-text" id="W9" name="w_nine">
+                            </div>
+                        </div>
+                        <div class="field tax required">
+                            <label for="tax" class="label"><span>Tax Exempt</span></label>
+                            <div class="control">
+                                <input type="file" class="input-text" id="tax" name="tax">
+                            </div>
+                        </div>
+                       </div>
+                    </div>
+                </fieldset>
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action submit primary" title="Save"><span><?= $block->
+                        escapeHtmlAttr(__('Register')) ?></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+require(['jquery'], function (jQuery) {
+    jQuery(document).ready(function(){
+        jQuery('input[type="checkbox"]').click(function(){
+            if(jQuery(this).prop("checked") == true){
+                console.log("Checkbox is checked.");
+                jQuery(".if-business").show();
+                jQuery("#business-name").addClass("required-entry");
+                jQuery("#address").addClass("required-entry");
+                jQuery("#TIN").addClass("required-entry");
+                jQuery("#W9").addClass("required-entry");
+                jQuery("#tax").addClass("required-entry");
+
+            }
+            else if(jQuery(this).prop("checked") == false){
+                jQuery(".if-business").hide();
+                console.log("Checkbox is unchecked.");
+                jQuery("#business-name").removeClass("required-entry");
+                jQuery("#address").removeClass("required-entry");
+                jQuery("#TIN").removeClass("required-entry");
+                jQuery("#W9").removeClass("required-entry");
+                jQuery("#tax").removeClass("required-entry");
+            }
+        });
+    });
+});
+</script>
+<script type="text/x-magento-init">
+    {
+        ".field.password": {
+            "passwordStrengthIndicator": {
+                "formSelector": "form.form-create-account"
+            }
+        }
+    }
+</script>
